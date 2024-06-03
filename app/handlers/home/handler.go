@@ -277,6 +277,7 @@ func main() {
         <h2>Ссылки</h2>
         <p>Как работает и что за giflic такой.</p>
         <ul class="icon-list">
+          <li><a href="https://gitflic.ru/project/getapp/gohome" rel="noopener" target="_blank">Исходники сервиса</a></li>
           <li><a href="https://pkg.go.dev/cmd/go#hdr-Remote_import_paths" rel="noopener" target="_blank">Как работает импорт пакетов</a></li>
           <li><a href="https://gitflic.ru/user/kovardin" rel="noopener" target="_blank">Да кто это ваш giflic</a></li>
           <li><a href="https://t.me/kodikapusta" rel="noopener" target="_blank">Код и капуста</a></li>
