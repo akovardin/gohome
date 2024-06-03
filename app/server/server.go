@@ -14,7 +14,7 @@ import (
 	"github.com/go-chi/httplog/v2"
 	"go.uber.org/fx"
 
-	"gohome.4gophers.ru/gohome/app/handlers/home"
+	"gohome.4gophers.ru/getapp/gohome/app/handlers/home"
 )
 
 type Config struct {

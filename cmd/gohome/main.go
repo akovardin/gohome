@@ -6,10 +6,10 @@ import (
 	"github.com/urfave/cli/v2"
 	"go.uber.org/fx"
 
-	"gohome.4gophers.ru/gohome/app/config"
-	"gohome.4gophers.ru/gohome/app/handlers/home"
-	"gohome.4gophers.ru/gohome/app/server"
-	"gohome.4gophers.ru/gohome/pkg/logger"
+	"gohome.4gophers.ru/getapp/gohome/app/config"
+	"gohome.4gophers.ru/getapp/gohome/app/handlers/home"
+	"gohome.4gophers.ru/getapp/gohome/app/server"
+	"gohome.4gophers.ru/getapp/gohome/pkg/logger"
 )
 
 func main() {

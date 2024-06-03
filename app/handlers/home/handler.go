@@ -8,7 +8,7 @@ import (
 	lru "github.com/hashicorp/golang-lru/v2"
 	"go.uber.org/zap"
 
-	"gohome.4gophers.ru/gohome/pkg/logger"
+	"gohome.4gophers.ru/getapp/gohome/pkg/logger"
 )
 
 type Handler struct {
@@ -148,11 +148,11 @@ var tmpl = `<!doctype html>
 	  Очень легко устанавливать Go пакеты с гитхаба. Но все сложнее если библиотека лежит на gitflic.ru. Тут обычный go get не сработает.
 	</p>
 	<p class="fs-5 col-md-10">
-	  Для этого я сделала <code>Go Home</code> с помощью которого пакеты можно устанавливать как <code>go get gohome.4gophers.ru/getapp/boosty</code> и установить пакет.
+	  Для этого есть <code>Go Home</code>. С его помощью пакеты можно устанавливать через <code>go get</code>.
 	</p>
 
 	<p class="fs-5 col-md-10">
-	  Для начала нужно создать пакет, название которого будет начинаться с gohome.4gophers.ru:
+	  Для начала нужно создать пакет, название которого будет начинаться с <code>gohome.4gophers.ru</code>:
 
 <pre>
 go mod init gohome.4gophers.ru/kovardin/example
@@ -183,6 +183,10 @@ func main() {
 	fmt.Println(example.Hello("Artem"))
 }
 </pre>
+	</p>
+
+	<p class="fs-5 col-md-10">
+	Go разрулит зависимости через meta теги на этом сайте и установит зависимость.
 	</p>
 
     <hr class="col-3 col-md-2 mb-5">

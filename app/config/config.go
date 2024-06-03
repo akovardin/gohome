@@ -8,8 +8,8 @@ import (
 	"go.uber.org/config"
 	"go.uber.org/fx"
 
-	"gohome.4gophers.ru/gohome/app/server"
-	"gohome.4gophers.ru/gohome/pkg/logger"
+	"gohome.4gophers.ru/getapp/gohome/app/server"
+	"gohome.4gophers.ru/getapp/gohome/pkg/logger"
 )
 
 type Config struct {

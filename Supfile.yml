@@ -1,0 +1,24 @@
+networks:
+  production:
+    hosts:
+      - root@5.53.125.59
+
+  kovardin.ru:
+    hosts:
+      - root@5.53.125.59
+
+commands:
+  stop:
+    run: systemctl stop gohome.service
+
+  start:
+    run: systemctl start gohome.service
+
+  letsencrypt:
+    run: letsencrypt certonly -a webroot --webroot-path=/var/www/gohome.4gophers.ru/web -d gohome.4gophers.ru
+
+  daemonreload:
+    run: systemctl daemon-reload
+
+  nginxreload:
+    run: systemctl restart nginx

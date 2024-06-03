@@ -1,4 +1,4 @@
-module gohome.4gophers.ru/gohome
+module gohome.4gophers.ru/getapp/gohome
 
 go 1.22.2
 
