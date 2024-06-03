@@ -1,0 +1,6 @@
+.vscode/*
+__debug*
+build/*
+configs/prod.yml
+configs/dev.yml
+deploy/*

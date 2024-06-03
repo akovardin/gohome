@@ -1,0 +1,47 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  SERVER: kovardin.ru
+
+tasks:
+  macos:
+    cmds:
+      - mkdir -p build/mac/
+      - go build -v -o build/mac/gohome ./cmd/gohome
+
+  build:
+    cmds:
+      - mkdir -p build/bin/
+#     GOPROXY=direct
+      - docker run -v `pwd`/:/go/src/gohome -w /go/src/gohome -e "VERSION=0.0.1" -i golang:1.22.3 /bin/sh -c "GOOS=linux GOARCH=amd64 go build -v -o build/bin/gohome -ldflags '-v -w -s -linkmode auto -extldflags \"-static\" -X main.Version=0.0.1' ./cmd/gohome"
+
+  deploy:
+    deps: [build]
+    cmds:
+      - task: deploy-instance
+
+  deploy-instance:
+    internal: true
+    cmds:
+      - sup {{ .SERVER }} stop
+      - scp ./build/bin/gohome {{ .SERVER }}:/opt/gohome/bin/
+      - scp ./configs/base.yml {{ .SERVER }}:/opt/gohome/configs/
+      - scp ./configs/prod.yml {{ .SERVER }}:/opt/gohome/configs/
+      - sup {{ .SERVER }} start
+
+  
+  nginx:
+    cmds:
+      - scp ./deploy/gohome.4gophers.ru kovardin.ru:/etc/nginx/sites-available/
+      - sup {{ .SERVER }} nginxreload
+
+  systemd:
+    cmds:
+      - scp ./deploy/gohome.service kovardin.ru:/etc/systemd/system/
+      - sup {{ .SERVER }} daemonreload
+
+  letsencrypt:
+    cmds:
+      - sup {{ .SERVER }} letsencrypt
