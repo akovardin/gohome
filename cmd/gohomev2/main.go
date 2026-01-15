@@ -88,17 +88,8 @@ func configure(
 	users.Configure(b)
 
 	b.MenuOrder(
-		"advertisers",
-		"campaigns",
-		"bgroups",
-		"banners",
-		b.MenuGroup("Additions").SubItems(
-			"media-library",
-			"audience",
-		).Icon("mdi-plus-box-multiple"),
-		b.MenuGroup("Settings").SubItems(
-			"users",
-		).Icon("mdi-wrench-cog"),
+		"media-library",
+		"users",
 	)
 
 	return b

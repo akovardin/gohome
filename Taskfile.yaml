@@ -45,3 +45,10 @@ tasks:
   letsencrypt:
     cmds:
       - sup {{ .SERVER }} letsencrypt
+
+  gitpush:
+    cmds:
+      - git push origin master
+      - git push sourcecraft master
+      - git push github master
+      - git push gitverse master
