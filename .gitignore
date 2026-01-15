@@ -1,6 +1,6 @@
 .vscode/*
 __debug*
 build/*
-configs/prod.yml
-configs/dev.yml
+configs/prod.yaml
+configs/dev.yaml
 deploy/*
