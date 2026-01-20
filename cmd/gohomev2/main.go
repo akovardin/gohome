@@ -17,6 +17,7 @@ import (
 	"gohome.4gophers.ru/getapp/gohome/appv2/database"
 	"gohome.4gophers.ru/getapp/gohome/appv2/logger"
 	"gohome.4gophers.ru/getapp/gohome/appv2/modules/media"
+	"gohome.4gophers.ru/getapp/gohome/appv2/modules/packages"
 	"gohome.4gophers.ru/getapp/gohome/appv2/modules/users"
 	"gohome.4gophers.ru/getapp/gohome/appv2/s3storage"
 	"gohome.4gophers.ru/getapp/gohome/appv2/server"
@@ -39,6 +40,7 @@ func main() {
 		// modules
 		media.Module,
 		users.Module,
+		packages.Module,
 
 		fx.Provide(
 			configure,
@@ -70,6 +72,7 @@ func configure(
 	db *gorm.DB,
 	media *media.Media,
 	users *users.Users,
+	packages *packages.Packages,
 ) *presets.Builder {
 	b := presets.New()
 
@@ -86,6 +89,7 @@ func configure(
 
 	media.Configure(b)
 	users.Configure(b)
+	packages.Configure(b)
 
 	b.MenuOrder(
 		"media-library",
@@ -95,6 +99,7 @@ func configure(
 	return b
 }
 
-func migrate(users *users.Users) {
+func migrate(users *users.Users, packages *packages.Packages) {
 	users.Migrate()
+	packages.Migrate()
 }
